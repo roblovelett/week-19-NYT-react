@@ -21513,7 +21513,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -21543,61 +21543,93 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Main = function (_React$Component) {
-		_inherits(Main, _React$Component);
+	    _inherits(Main, _React$Component);
 
-		function Main() {
-			_classCallCheck(this, Main);
+	    function Main(props) {
+	        _classCallCheck(this, Main);
 
-			return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
-		}
+	        var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
 
-		_createClass(Main, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					{ className: 'container' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'row' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'jumbotron' },
-							_react2.default.createElement(
-								'h1',
-								{ className: 'text-center' },
-								'New York Times Mern App'
-							),
-							_react2.default.createElement(
-								'p',
-								{ className: 'text-center' },
-								_react2.default.createElement(
-									'em',
-									null,
-									'Enter NYT search topic'
-								)
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-md-12' },
-							_react2.default.createElement(_form2.default, { setTerm: this.setTerm, setStartDate: this.setStartDate, setEndDate: this.setEndDate })
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'row' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-md-12' },
-							_react2.default.createElement(_results2.default, { results: this.state.results })
-						)
-					)
-				);
-			}
-		}]);
+	        _this.state = {
+	            searchTerm: "",
+	            startDate: "",
+	            endDate: "",
+	            results: ""
+	        };
+	        _this.setTerm = _this.setTerm.bind(_this);
+	        _this.setStartDate = _this.setStartDate.bind(_this);
+	        _this.setEndDate = _this.setEndDate.bind(_this);
+	        return _this;
+	    }
 
-		return Main;
+	    _createClass(Main, [{
+	        key: 'setTerm',
+	        value: function setTerm(term) {
+	            this.setState({
+	                searchTerm: term
+	            });
+	        }
+	    }, {
+	        key: 'setStartDate',
+	        value: function setStartDate(start) {
+	            this.setState({
+	                startDate: start
+	            });
+	        }
+	    }, {
+	        key: 'setEndDate',
+	        value: function setEndDate(end) {
+	            this.setState({
+	                endDate: end
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'container' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'jumbotron' },
+	                        _react2.default.createElement(
+	                            'h1',
+	                            { className: 'text-center' },
+	                            'New York Times Mern App'
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            { className: 'text-center' },
+	                            _react2.default.createElement(
+	                                'em',
+	                                null,
+	                                'Enter NYT search topic'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-12' },
+	                        _react2.default.createElement(_form2.default, { setTerm: this.setTerm, setStartDate: this.setStartDate, setEndDate: this.setEndDate })
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-12' },
+	                        _react2.default.createElement(_results2.default, { results: this.state.results })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Main;
 	}(_react2.default.Component);
 
 	;

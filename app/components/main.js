@@ -4,6 +4,36 @@ import Results from './children/results'
 import Helpers from './util/helpers';
 
 class Main extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchTerm: "",
+            startDate: "",
+            endDate: "",
+            results: ""
+        };
+        this.setTerm = this.setTerm.bind(this);
+        this.setStartDate = this.setStartDate.bind(this);
+        this.setEndDate = this.setEndDate.bind(this);
+    };
+
+    setTerm(term) {
+        this.setState({
+            searchTerm: term
+        });
+    };
+    setStartDate(start) {
+        this.setState({
+            startDate: start
+        });
+    };
+    setEndDate(end){
+        this.setState({
+            endDate: end
+        });
+    };
+
     render() {
         return(
             <div className="container">
