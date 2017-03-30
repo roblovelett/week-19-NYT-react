@@ -1,4 +1,7 @@
 import React from 'react';
+import Form from './children/form';
+import Results from './children/results'
+import Helpers from './util/helpers';
 
 class Main extends React.Component {
     render() {
