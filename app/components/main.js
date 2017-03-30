@@ -22,3 +22,5 @@ class Main extends React.Component {
         );
     };
 };
+
+export default Main; //export component for global use
