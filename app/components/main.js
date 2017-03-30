@@ -4,7 +4,7 @@ import Results from './children/results'
 import Helpers from './util/helpers';
 
 class Main extends React.Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -32,6 +32,21 @@ class Main extends React.Component {
         this.setState({
             endDate: end
         });
+    };
+    
+    componentUpdate(prevProps, prevState) {
+        if (prevState.searchTerm != this.state.searchTerm) {
+            console.log("Updated");
+            Helpers.runQuery(this.state.searchTerm,this.state.startDate,this.state.endDate)
+                .then((data)=>{
+                    if (data != this.state.results) {
+                        console.log(data);
+                        this.setState({
+                            results: data
+                        });
+                    };
+                });
+        };
     };
 
     render() {

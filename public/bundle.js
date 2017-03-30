@@ -21584,6 +21584,23 @@
 	            });
 	        }
 	    }, {
+	        key: 'componentUpdate',
+	        value: function componentUpdate(prevProps, prevState) {
+	            var _this2 = this;
+
+	            if (prevState.searchTerm != this.state.searchTerm) {
+	                console.log("Updated");
+	                _helpers2.default.runQuery(this.state.searchTerm, this.state.startDate, this.state.endDate).then(function (data) {
+	                    if (data != _this2.state.results) {
+	                        console.log(data);
+	                        _this2.setState({
+	                            results: data
+	                        });
+	                    };
+	                });
+	            };
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
